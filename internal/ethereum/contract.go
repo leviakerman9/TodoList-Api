@@ -15,9 +15,9 @@ import (
 var Todo *contracts.Todolistv2
 var Auth *bind.TransactOpts
 
-func InitContract(cfg *config.Config) {
+func InitiateContract(cfg *config.Config) {
 	if EthClient == nil {
-	log.Fatal("Ethereum client is nil. Did you call InitClient() first?")
+	log.Fatal("Ethereum client is nil.Ethereum node connection is not setup properly. First call InitClient()")
 }
 	log.Println("Contract address:", cfg.ContractAddress)
 

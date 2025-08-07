@@ -9,11 +9,11 @@ import (
 
 var EthClient *ethclient.Client
 
-func InitClient(rpcURL string) {
+func InitiateClient(rpcURL string) {
 	client, err := ethclient.Dial(rpcURL)
 	if err != nil {
 		log.Fatalf("Failed to connect to Ethereum node: %v", err)
 	}
 	EthClient = client
-	log.Println("Ethereum client connected")
+	log.Println("Ethereum client connected successfully")
 }

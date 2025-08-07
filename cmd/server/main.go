@@ -14,9 +14,9 @@ func main() {
 	fmt.Println("this is the entry point")
 	cfg := config.LoadConfig()
 
-	ethereum.InitClient(cfg.RPCURL)
-	ethereum.InitContract(cfg)
+	ethereum.InitiateClient(cfg.RPCURL) //this function call will initaite and setup client and with connect to ethereum node 
+	ethereum.InitiateContract(cfg) //this function call will allows us to load contact and signer
 
-	router := api.SetupRouter()
+	router := api.SetupRouter() 
 	router.Run(":8080")
 }
