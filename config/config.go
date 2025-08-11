@@ -12,6 +12,8 @@ type Config struct {
 	ContractAddress string
 	PrivateKey     string
 	OwnerAddress   string
+	ChainID       int64
+
 }
 
 func LoadConfig() *Config {
@@ -25,5 +27,6 @@ func LoadConfig() *Config {
 		ContractAddress: os.Getenv("CONTRACT_ADDRESS"),
 		PrivateKey:     os.Getenv("PRIVATE_KEY"),
 		OwnerAddress:   os.Getenv("OWNER_ADDRESS"),
+		ChainID: 11155111,
 	}
 }

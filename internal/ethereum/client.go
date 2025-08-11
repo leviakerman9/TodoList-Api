@@ -7,13 +7,19 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 )
 
-var EthClient *ethclient.Client
+type Client struct{
+  EthClient *ethclient.Client
 
-func InitiateClient(rpcURL string) {
+}
+
+func InitiateClient(rpcURL string) (*Client,error){
 	client, err := ethclient.Dial(rpcURL)
 	if err != nil {
 		log.Fatalf("Failed to connect to Ethereum node: %v", err)
 	}
-	EthClient = client
 	log.Println("Ethereum client connected successfully")
+
+	return &Client{
+		EthClient : client,
+	},nil
 }

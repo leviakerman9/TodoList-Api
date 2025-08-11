@@ -2,13 +2,13 @@ package api
 
 import "github.com/gin-gonic/gin"
 
-func SetupRouter() *gin.Engine {
+func SetupRouter(handler *APIHandler) *gin.Engine {
 	r := gin.Default()
 
-	r.POST("/task", CreateTask)
-	r.GET("/task/:id", GetTask)
-	r.PUT("/task", UpdateTask)
-	r.DELETE("/task/:id", DeleteTask)
+	r.POST("/task", handler.CreateTask)
+	r.GET("/task/:id", handler.GetTask)
+	r.PUT("/task", handler.UpdateTask)
+	r.DELETE("/task/:id", handler.DeleteTask)
 
 	return r
 }
